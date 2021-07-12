@@ -10,14 +10,14 @@
 }
 ::selection{
   color: #ffff;
-  background: rgb(142, 73, 232);
+  background: #feb100;
 }
 body{
   width: 100%;
   height: 100vh;
   /* overflow: hidden; */
   padding: 10px;
-  background:   #e74c3c;
+  background: #7d0040;
 }
 .wrapper{
   background: #fff;
@@ -96,15 +96,7 @@ body{
 }
 
 
-.high{
-    columns: red;
-}
-.mid{
-    color: #FFBF00
-}
-.low{
-    color:green
-}
+
 
 .todoList li .icon{
   position: absolute;
@@ -143,6 +135,57 @@ body{
   pointer-events: none;
   transition: all 0.3s ease;
 }
+.filter button{
+    padding: 6px 10px;
+    border-radius: 3px;
+    border: none;
+    outline: none;
+    color: #fff;
+    font-weight: 400;
+    font-size: 16px;
+    margin-left: 5px;
+    
+    cursor: pointer;
+    user-select: none;
+    opacity: 0.6;
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+
+.priority{
+    padding: 8px 12px;
+    color: #333333;
+    background-color: #eeeeee;
+    border: 1px solid #dddddd;
+    cursor: pointer;
+    border-radius: 3px;
+    margin-bottom: 8px;
+    outline: none;
+    font-family: 'Poppins', sans-serif;
+  
+}
+.priority:focus,
+.priority:hover{
+outline: none;
+border: 1px solid #bbbbbb
+}
+
+.priority option{
+    background: #ffffff;
+}
+
+#high{
+    background: red;
+}
+
+#mid{
+    background: #FFBF00
+}
+
+#low{
+    background:green
+}
+
 .footer button.active{
   opacity: 1;
   pointer-events: auto;

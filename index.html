@@ -18,10 +18,24 @@
       <input type="text" placeholder="Add your new todo">
       <button><i class="fas fa-plus"></i></button>
     </div>
+
+    <select name="" id="" class='priority'>
+        <option disabled selected>Select priority</option>
+        <option value="1">Low priority</option>
+        <option value="2">Medium priority</option>
+        <option value="3">High priority</option>
+    </select>
+   
+
     <ul class="todoList">
        
       <!-- data comes from local storage -->
     </ul>
+    <div class="filter">
+        <button id="low">Low</button>
+        <button id="mid">Mid</button>
+        <button id="high">High</button>
+    </div>
     <div class="footer">
       <span>You have <span class="pendingTasks"></span> pending tasks</span>
       <button>Clear All</button>
