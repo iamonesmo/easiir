@@ -1,0 +1,1 @@
+selectBox.selectedIndex = 0;

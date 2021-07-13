@@ -2,29 +2,65 @@
 const inputBox = document.querySelector(".inputField input");
 const addBtn = document.querySelector(".inputField button");
 const todoList = document.querySelector(".todoList");
+const selectBox = document.querySelector("#priorityBox");
 const deleteAllBtn = document.querySelector(".footer button");
+const lowPriorityBtn = document.querySelector("#low button");
+const midPriorityBtn = document.querySelector("#mid button");
+const highPriorityBtn = document.querySelector("#high button");
+
+//todo list item
+ var todoItem = {
+   todo: '',
+   priority: 0
+ }
+
+ function fnc(){
+   alert(selectBox.options[selectBox.selectedIndex].value);
+  //  selectBox.options[selectBox.selectedIndex].value =
+  selectBox.selectedIndex = 0;
+
+ }
+
 // onkeyup event
-inputBox.onkeyup = ()=>{
-  let userEnteredValue = inputBox.value; //getting user entered value
-  if(userEnteredValue.trim() != 0){ //if the user value isn't only spaces
-    addBtn.classList.add("active"); //active the add button
+inputBox.onkeyup =() =>{
+  selectBox.selectedIndex = 0;
+}
+selectBox.onchange = ()=>{
+  let userEnteredValue = inputBox.value;
+  // let selectedPriority = selectBox.options[selectBox.selectedIndex].value; //getting user entered value
+  if((userEnteredValue.trim() != 0) && (selectBox.selectedIndex != 0) ){ //if the user value isn't only spaces
+    addBtn.classList.add("active"); //activate the add button
+   
+    
   }else{
-    addBtn.classList.remove("active"); //unactive the add button
+    addBtn.classList.remove("active"); //disable the add button
+    
   }
 }
 showTasks(); //calling showTask function
 addBtn.onclick = ()=>{ //when user click on plus icon button
-  let userEnteredValue = inputBox.value; //getting input field value
+  let userEnteredValue = inputBox.value;
+  let selectedPriority = selectBox.options[selectBox.selectedIndex].value;
+
+  //creating the todo from the entered values
+
+  todoItem['todo'] = userEnteredValue;
+  todoItem['priority'] = selectedPriority;
+
+   //getting input field value
   let getLocalStorageData = localStorage.getItem("New Todo"); //getting localstorage
   if(getLocalStorageData == null){ //if localstorage has no data
    let listArray = []; //create a blank array
   }else{
     let listArray = JSON.parse(getLocalStorageData);  //transforming json string into a js object
   }
-  listArray.push(userEnteredValue); //pushing or adding new value in array
+  // listArray.push(userEnteredValue); //pushing or adding new value in array
+
+  listArray.push(todoItem);
   localStorage.setItem("New Todo", JSON.stringify(listArray)); //transforming js object into a json string
   showTasks(); //calling showTask function
-  addBtn.classList.remove("active"); //unactive the add button once the task added
+  addBtn.classList.remove("active"); 
+  selectBox.selectedIndex = 0;//unactive the add button once the task added
 }
 function showTasks(){
   let getLocalStorageData = localStorage.getItem("New Todo");
@@ -42,10 +78,20 @@ function showTasks(){
   }
   let newLiTag = "";
   listArray.forEach((element, index) => {
-    newLiTag += `<li>${element}<span class="icon" onclick="deleteTask(${index})"><i class="fas fa-trash"></i></span></li>`;
+    // newLiTag += `<li>${element['todo']}<span class="icon" onclick="deleteTask(${index})"><i class="fas fa-trash"></i></span></li>`;
+    if(element['priority'] == 1){
+       newLiTag += `<li id = "low" >${element['todo']}<span class="icon" onclick="deleteTask(${index})"><i class="fas fa-trash"></i></span></li>`;
+    } else if(element['priority'] == 2){
+      newLiTag += `<li id = "mid" >${element['todo']}<span class="icon" onclick="deleteTask(${index})"><i class="fas fa-trash"></i></span></li>`;
+    }else{
+      newLiTag += `<li id = "high" >${element['todo']}<span class="icon" onclick="deleteTask(${index})"><i class="fas fa-trash"></i></span></li>`;
+    }
+
+
   });
   todoList.innerHTML = newLiTag; //adding new li tag inside ul tag
-  inputBox.value = ""; //once task added leave the input field blank
+  inputBox.value = ""; 
+  //once task added leave the input field blank
 }
 // delete task function
 function deleteTask(index){

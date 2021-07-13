@@ -19,12 +19,14 @@
       <button><i class="fas fa-plus"></i></button>
     </div>
 
-    <select name="" id="" class='priority'>
+    <select name="" id='priorityBox' onfocus="this.selectedIndex = 0;">
         <option disabled selected>Select priority</option>
-        <option value="1">Low priority</option>
-        <option value="2">Medium priority</option>
-        <option value="3">High priority</option>
+        <option value=1>Low priority</option>
+        <option value=2>Medium priority</option>
+        <option value=3>High priority</option>
     </select>
+
+    <button onclick="fnc()">Click</button>
    
 
     <ul class="todoList">

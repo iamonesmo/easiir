@@ -88,7 +88,7 @@ body{
   height: 45px;
   line-height: 45px;
   margin-bottom: 8px;
-  background: #f2f2f2;
+  /* background: #f2f2f2; */
   border-radius: 3px;
   padding: 0 15px;
   cursor: default;
@@ -101,11 +101,12 @@ body{
 .todoList li .icon{
   position: absolute;
   right: -45px;
-  background: #e74c3c;
+  /* background: rgb(150, 148, 148); */
   width: 45px;
   text-align: center;
-  color: #fff;
+  color:rgb(150, 148, 148);
   border-radius: 0 3px 3px 0;
+  /* border-left: oldlace 1px solid; */
   cursor: pointer;
   transition: all 0.2s ease;
 }
@@ -152,7 +153,7 @@ body{
     transition: all 0.3s ease;
 }
 
-.priority{
+#priorityBox{
     padding: 8px 12px;
     color: #333333;
     background-color: #eeeeee;
@@ -164,26 +165,33 @@ body{
     font-family: 'Poppins', sans-serif;
   
 }
-.priority:focus,
-.priority:hover{
+#priorityBox:focus,
+#priorityBox:hover{
 outline: none;
 border: 1px solid #bbbbbb
 }
 
-.priority option{
+#priorityBox option{
     background: #ffffff;
+    font-family: 'Poppins', sans-serif;
 }
 
 #high{
     background: red;
+    color: #fff;
+    opacity: 0.6;
 }
 
 #mid{
-    background: #FFBF00
+    background: #FFBF00;
+    color : #fff;
+    opacity: 0.6;
 }
 
 #low{
-    background:green
+    background:green;
+    color: #fff;
+    opacity: 0.6;
 }
 
 .footer button.active{
