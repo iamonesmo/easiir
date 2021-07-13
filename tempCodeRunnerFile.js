@@ -1,1 +1,0 @@
-selectBox.selectedIndex = 0;
