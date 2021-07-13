@@ -36,14 +36,29 @@ body{
   color:  #FEB100;
   
 }
+
+.wrapper .inputContainer{
+  margin: 20px 0px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  padding: 5px;
+}
 .wrapper .inputField{
-  margin: 20px 0;
+  margin-top: 5px ;
+  margin-bottom: 10sspx;
   width: 100%;
   display: flex;
   height: 45px;
 }
+
+.wrapper .select{
+  display: flex;
+  height: 45px;
+  margin: 5px 0;
+}
 .inputField input{
-  width: 85%;
+  /* width: 85%; */
+  width: 100%;
   height: 100%;
   outline: none;
   border-radius: 3px;
@@ -55,7 +70,7 @@ body{
 .inputField input:focus{
   border-color:  #FEB100;
 }
-.inputField button{
+.select button{
   width: 50px;
   height: 100%;
   border: none;
@@ -63,32 +78,38 @@ body{
   margin-left: 5px;
   font-size: 21px;
   outline: none;
-  background:  #FEB100;
+  
+  background: grey;
   cursor: pointer;
   border-radius: 3px;
   opacity: 0.6;
   pointer-events: none;
   transition: all 0.3s ease;
 }
-.inputField button:hover,
+.select button:hover,
 .footer button:hover{
   background:  #FEB100;
 }
-.inputField button.active{
+.select button.active{
   opacity: 1;
+  background:  #FEB100;
   pointer-events: auto;
 }
+
 .wrapper .todoList{
   max-height: 250px;
   overflow-y: auto;
 }
+
+
 .todoList li{
   position: relative;
   list-style: none;
+ 
   height: 45px;
   line-height: 45px;
   margin-bottom: 8px;
-  /* background: #f2f2f2; */
+ 
   border-radius: 3px;
   padding: 0 15px;
   cursor: default;
@@ -144,25 +165,43 @@ body{
     color: #fff;
     font-weight: 400;
     font-size: 16px;
-    margin-left: 5px;
-    
+    margin-right: 5px;
+    margin-top: 5px;
     cursor: pointer;
+  
     user-select: none;
     opacity: 0.6;
     pointer-events: none;
     transition: all 0.3s ease;
 }
 
+#showAll{
+  padding: 6px 10px;
+  border-radius: 3px;
+  border: none;
+  outline: none;
+  color: #fff;
+  font-weight: 400;
+  font-size: 16px;
+  margin-left: 5px;
+  cursor: pointer;
+  background: silver;
+  opacity: 0.6;
+  transition: all 0.3s ease;
+}
+
 #priorityBox{
-    padding: 8px 12px;
-    color: #333333;
-    background-color: #eeeeee;
-    border: 1px solid #dddddd;
-    cursor: pointer;
-    border-radius: 3px;
-    margin-bottom: 8px;
-    outline: none;
-    font-family: 'Poppins', sans-serif;
+  width: 85%;
+  height: 45px;
+  padding: 8px 12px;
+  color: #333333;
+  background-color: #eeeeee;
+  border: 1px solid #dddddd;
+  cursor: pointer;
+  border-radius: 3px;
+  /* margin-bottom: 5px; */
+  outline: none;
+  font-family: 'Poppins', sans-serif;
   
 }
 #priorityBox:focus,
@@ -184,7 +223,7 @@ border: 1px solid #bbbbbb
 
 #mid{
     background: #FFBF00;
-    color : #fff;
+    color: black;
     opacity: 0.6;
 }
 
@@ -198,3 +237,9 @@ border: 1px solid #bbbbbb
   opacity: 1;
   pointer-events: auto;
 }
+
+.filter button.active{
+  opacity: 1;
+  pointer-events: auto;
+}
+

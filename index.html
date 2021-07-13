@@ -14,29 +14,38 @@
     <header>easiir</header>
         <hr>
         <p>todo app</p>
-    <div class="inputField">
-      <input type="text" placeholder="Add your new todo">
+    <div class="inputContainer">
+      <div class="inputField">
+        <input type="text" placeholder="Add your new todo">
+        
+  
+      </div>
+      <div class="select">
+        <select name="" id='priorityBox' onfocus="this.selectedIndex = 0;">
+          <option disabled selected>Select priority</option>
+          <option value='low'>Low priority</option>
+          <option value='mid'>Medium priority</option>
+          <option value='high'>High priority</option>
+      </select>
       <button><i class="fas fa-plus"></i></button>
+      </div>
+
     </div>
-
-    <select name="" id='priorityBox' onfocus="this.selectedIndex = 0;">
-        <option disabled selected>Select priority</option>
-        <option value=1>Low priority</option>
-        <option value=2>Medium priority</option>
-        <option value=3>High priority</option>
-    </select>
-
-    <button onclick="fnc()">Click</button>
+   
+    
    
 
     <ul class="todoList">
        
       <!-- data comes from local storage -->
     </ul>
+    <br>
+    <p>filter results</p>
     <div class="filter">
-        <button id="low">Low</button>
-        <button id="mid">Mid</button>
-        <button id="high">High</button>
+        <button  id='low'>Low</button>
+        <button id='mid'>Mid</button>
+        <button id='high'>High</button>
+        <button id='showAll'>Show All</button>
     </div>
     <div class="footer">
       <span>You have <span class="pendingTasks"></span> pending tasks</span>
